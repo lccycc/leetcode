@@ -1,2 +1,6 @@
 Surrounded_Regions:
     take care of the boundary. block O next to boundery is not counted.
+
+Palindrome_Partitioning:
+    the initial value of m[0] should push_back an empty vector<string>
+    not push_back a vector of {""}
