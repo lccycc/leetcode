@@ -27,3 +27,6 @@ Valid Palindrome:
 Binary_Tree_Maximum_Path_Sum:
     should return a valid path, include at least a node.
     if all node is negative, should not return 0.
+
+Best_Time_To_Buy_and_Sell_Stock_III:
+    if n < 2 return 0
