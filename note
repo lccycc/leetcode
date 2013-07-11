@@ -8,3 +8,18 @@ Palindrome_Partitioning:
 Palindrome_Partitioning_II:
     don't forget to sort (i,j) while coding.
     write down steps before coding.
+
+Sum_Root_to_Leaf_Numbers:
+    ..
+
+Longest_Consecutive_Sequence:
+    link_jump, or union-set
+
+Word_Ladder:
+    O(n*len*26) bfs. don't think too complicate!
+
+Word_Ladder_II:
+    ..
+
+Valid Palindrome:
+    numbers are belong to alphanumeric. use isalpha(c) and isdigit(c)
