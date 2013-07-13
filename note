@@ -9,17 +9,11 @@ Palindrome_Partitioning_II:
     don't forget to sort (i,j) while coding.
     write down steps before coding.
 
-Sum_Root_to_Leaf_Numbers:
-    ..
-
 Longest_Consecutive_Sequence:
     link_jump, or union-set
 
 Word_Ladder:
     O(n*len*26) bfs. don't think too complicate!
-
-Word_Ladder_II:
-    ..
 
 Valid Palindrome:
     numbers are belong to alphanumeric. use isalpha(c) and isdigit(c)
@@ -31,13 +25,6 @@ Binary_Tree_Maximum_Path_Sum:
 Best_Time_To_Buy_and_Sell_Stock_III:
     if n < 2 return 0
 
-Best_Time_To_Buy_and_Sell_Stock_II:
-Best_Time_To_Buy_and_Sell_Stock_III:
-    ...
-
-Triangle:
-    ..
-
 Pascal'sTriangle:
     take care n = 0!
 Pascal'sTriangle II:
@@ -47,12 +34,3 @@ Populating Next Right Pointers in Each Node:
 Populating Next Right Pointers in Each Node II:
     use the next point of last level
 
-Distinct Subsequences:
-    ..
-
-Flatten Binary Tree to Linked List
-    ..
-
-Path Sum:
-Path Sum II:
-    ..
