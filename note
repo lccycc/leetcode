@@ -38,12 +38,15 @@ Best_Time_To_Buy_and_Sell_Stock_III:
 Triangle:
     ..
 
-Pascal's Triangle:
+Pascal'sTriangle:
     take care n = 0!
-Pascal's Triangle II:
+Pascal'sTriangle II:
     when n = 0, output the 1th row [1]
 
 Populating Next Right Pointers in Each Node:
 Populating Next Right Pointers in Each Node II:
+    use the next point of last level
+
+Distinct Subsequences:
     ..
 
