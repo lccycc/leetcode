@@ -40,4 +40,6 @@ Triangle:
 
 Pascal's Triangle:
     take care n = 0!
+Pascal's Triangle II:
+    when n = 0, output the 1th row [1]
 
