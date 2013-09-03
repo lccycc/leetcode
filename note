@@ -38,6 +38,9 @@ Binary Tree Level Order Traversal:
 Binary Tree Level Order Traversal II:
     take care!!!
 
-Symmetric Tree
+Symmetric Tree:
     How to solve it iteratorily?
     Initilize every variable when declare and use!
+    
+Recover Binary Search Tree:
+    remember to return at the end of a function!
