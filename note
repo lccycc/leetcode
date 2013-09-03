@@ -44,3 +44,6 @@ Symmetric Tree:
     
 Recover Binary Search Tree:
     remember to return at the end of a function!
+    
+Validate Binary Search Tree:
+    There should not be duplicate in a BST.
