@@ -47,3 +47,6 @@ Recover Binary Search Tree:
     
 Validate Binary Search Tree:
     There should not be duplicate in a BST.
+
+Interleaving String:
+    if (s1.length() + s2.length() != s3.length()) return false;
