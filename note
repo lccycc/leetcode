@@ -50,3 +50,6 @@ Validate Binary Search Tree:
 
 Interleaving String:
     if (s1.length() + s2.length() != s3.length()) return false;
+    
+Restore IP Addresse:
+    when cut into small piece, take care of those start with 0
