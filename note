@@ -56,3 +56,6 @@ Restore IP Addresse:
 
 Reverse Linked List II:
     use for( ) instead of while (cnt++<n)
+
+Decode Ways:
+    take care of s.size() == 0!!
