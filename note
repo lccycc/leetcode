@@ -53,3 +53,6 @@ Interleaving String:
     
 Restore IP Addresse:
     when cut into small piece, take care of those start with 0
+
+Reverse Linked List II:
+    use for( ) instead of while (cnt++<n)
