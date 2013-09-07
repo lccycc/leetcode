@@ -59,3 +59,6 @@ Reverse Linked List II:
 
 Decode Ways:
     take care of s.size() == 0!!
+
+Scramble String：
+    look at the problem carefully.
