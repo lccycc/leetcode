@@ -62,3 +62,7 @@ Decode Ways:
 
 Scramble String：
     read the problem carefully.
+    
+Partition List:
+    use NodeList *p instead of NodeList* p;
+    consider every pointer that could be NULL
