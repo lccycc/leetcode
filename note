@@ -84,3 +84,7 @@ Word Search：
     1 judge word[k] == board[x][y] at the beginning, then return true immediately after that if (k==word.size()-1)
     2 judge workd[k] == board[dx][dy] inside the for(direction), then should backup the cell again at the outside main loop.
     should not forget to judge the first cell! should not wander one more step before k == word.size()-1!
+
+Combinations:
+    Numbers start from 1, not from 0
+    the combination should sort. not return [3, 2]
