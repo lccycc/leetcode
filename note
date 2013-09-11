@@ -88,3 +88,8 @@ Word Search：
 Combinations:
     Numbers start from 1, not from 0
     the combination should sort. not return [3, 2]
+    
+Set Matrix Zeroe：
+    after record row0 and col0, all for loop should be settle into [1, n-1][1, m-1], do no judge row0 or col0!
+    and the whole "fill 0" operation should also be in [1, n-1][1, m-1]
+    after all, do work with 0.
