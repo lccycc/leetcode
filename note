@@ -72,3 +72,9 @@ Largest Rectangle in Histogram:
 
 Remove Duplicates from Sorted List II:
     read the example!
+
+Remove Duplicates from Sorted List:
+    always take care of NULL pointer. consider
+    1: whether a pointer could be NULL when initial, or the value is pass in
+    2: when p = p->next, consider whether p could be NULL
+    3: when remove some node of linklist, p->next could be NULL
