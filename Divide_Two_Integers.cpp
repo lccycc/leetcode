@@ -13,9 +13,6 @@ public:
             sgn*=-1;
             divisor *=-1;
         }
-        if (dividend > divisor){
-            return 0;
-        }
         int res = 0;
         while (dividend <= divisor){
             int deta = -1, cmu = divisor;
