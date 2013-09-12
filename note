@@ -96,3 +96,7 @@ Set Matrix Zeroe：
 
 Edit Distance:
     min, no max!!!!!!
+
+Text Justification:
+    1 words.size() could be 0, but we always find the first word of one line, thus could not deal this case
+    2 the last line should also be filled with exactly L characters.
