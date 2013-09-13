@@ -100,3 +100,12 @@ Edit Distance:
 Text Justification:
     1 words.size() could be 0, but we always find the first word of one line, thus could not deal this case
     2 the last line should also be filled with exactly L characters.
+
+Valid Number:
+    Those are numbers:
+    .1
+    +.1
+    +1.
+    1e+0
+    which means, "+" is allow and one side of "." could be empty, but not both side.
+    and, delete space at the beginning and at the end.
