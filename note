@@ -112,3 +112,6 @@ Valid Number:
 
 Implement strStr():
     needle could be empty, which KMP fail.
+
+Spiral Matrix:
+    Take care when write subindex of array, which is x/n, which is y/m
