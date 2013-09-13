@@ -109,3 +109,6 @@ Valid Number:
     1e+0
     which means, "+" is allow and one side of "." could be empty, but not both side.
     and, delete space at the beginning and at the end.
+
+Implement strStr():
+    needle could be empty, which KMP fail.
