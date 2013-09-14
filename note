@@ -131,3 +131,7 @@ First Missing Positive:
 
 Search in Rotated Sorted Array:
     when binarySearch on a subset of array, the return index should be added by deta
+    
+Longest Valid Parentheses:
+    when need to hash negetive numbers using hash[x + n], check every access
+    (expecially the initial part, such as x = 0 at the beginning of program) whether the (+n) operation is done.
