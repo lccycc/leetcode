@@ -118,3 +118,6 @@ Spiral Matrix:
     
 Permutations II:
     use for instead of something like while (i++);
+
+Jump Game II:
+    the initial value!
