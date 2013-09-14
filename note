@@ -128,3 +128,6 @@ Trapping Rain Water:
 First Missing Positive:
     problem description! whether include 0, and whether there will be negective numbers
     and when delete nodes, the current node could turn into invalid
+
+Search in Rotated Sorted Array:
+    when binarySearch on a subset of array, the return index should be added by deta
