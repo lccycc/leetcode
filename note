@@ -135,3 +135,7 @@ Search in Rotated Sorted Array:
 Longest Valid Parentheses:
     when need to hash negetive numbers using hash[x + n], check every access
     (expecially the initial part, such as x = 0 at the beginning of program) whether the (+n) operation is done.
+    
+Reverse Nodes in k-Group:
+    when need to save something (such as an pointer) so that could use after change,
+    take care that the one saved may be changed too!
