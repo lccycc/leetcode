@@ -145,3 +145,7 @@ Merge k Sorted Lists:
     
 4Sum:
     how to solve in O(N^2)?
+    
+Add Two Numbers:
+    *head = NULL, *p = NULL;
+    if (!p) p = new ListNode(..)  <--- should update head at the same time
