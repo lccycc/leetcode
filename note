@@ -139,3 +139,6 @@ Longest Valid Parentheses:
 Reverse Nodes in k-Group:
     when need to save something (such as an pointer) so that could use after change,
     take care that the one saved may be changed too!
+
+Merge k Sorted Lists:
+    NULL pointer
