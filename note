@@ -142,3 +142,6 @@ Reverse Nodes in k-Group:
 
 Merge k Sorted Lists:
     NULL pointer
+    
+4Sum:
+    how to solve in O(N^2)?
