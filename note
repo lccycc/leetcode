@@ -156,3 +156,7 @@ Search in Rotated Sorted Array:
 Regular Expression Matching:
     when matching a*, break once not match 'a'.
     use 'while' here is better than for, since for will forget to break.
+    
+Wildcard Matching:
+    for safety reason, always judge the length of string.
+    do never use the trick that s[length(s)] = 0
