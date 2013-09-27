@@ -169,3 +169,6 @@ Reverse Integer:
     
 Pow(x, n):
     n = MIN_INT! should not n = -n!
+    
+String to Integer (atoi):
+    space*[+/-](number+) ---ignore rest illegal chars
