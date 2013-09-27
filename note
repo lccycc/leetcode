@@ -152,3 +152,6 @@ Add Two Numbers:
 
 Search in Rotated Sorted Array:
     directory binary search. for A[l]..A[mid] and A[mid]..A[r], there is at least one increasing sequence.
+
+Regular Expression Matching:
+    when matching a*, break once not match 'a'.
