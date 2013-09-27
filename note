@@ -149,3 +149,6 @@ Merge k Sorted Lists:
 Add Two Numbers:
     *head = NULL, *p = NULL;
     if (!p) p = new ListNode(..)  <--- should update head at the same time
+
+Search in Rotated Sorted Array:
+    directory binary search. for A[l]..A[mid] and A[mid]..A[r], there is at least one increasing sequence.
