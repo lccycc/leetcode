@@ -167,3 +167,5 @@ Multiply Strings:
 Reverse Integer:
     how to judge overflow situation?
     
+Pow(x, n):
+    n = MIN_INT! should not n = -n!
