@@ -160,3 +160,7 @@ Regular Expression Matching:
 Wildcard Matching:
     for safety reason, always judge the length of string.
     do never use the trick that s[length(s)] = 0
+
+Multiply Strings:
+    when num1 == 0 or num2 == 0, there will be more than 1 zero before the result.
+    
