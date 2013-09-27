@@ -164,3 +164,6 @@ Wildcard Matching:
 Multiply Strings:
     when num1 == 0 or num2 == 0, there will be more than 1 zero before the result.
     
+Reverse Integer:
+    how to judge overflow situation?
+    
