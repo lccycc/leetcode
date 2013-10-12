@@ -1,13 +1,13 @@
 class Solution {
 public:
-    TreeNode *dfs(int lev, int kth, int maxlev, int base, ListNode *&pt){
-        if (lev > maxlev) return NULL;
-        if (lev == maxlev && kth > base) return NULL; 
-        TreeNode *l = dfs(lev+1, kth<<1, maxlev, base, pt);
+    TreeNode *dfs(int n, ListNode *&pt){
+        if (n == 0) return NULL;
+        int l = (n-1)/2, r = n-1-l;
+        TreeNode *lson = dfs(l, pt);
         TreeNode *node = new TreeNode(pt->val);
         pt = pt->next;
-        node->left = l;
-        node->right = dfs(lev+1, (kth<<1)+1, maxlev, base, pt);
+        node->left = lson;
+        node->right = dfs(r, pt);
         return node;
     }   
     TreeNode *sortedListToBST(ListNode *head) {
@@ -15,13 +15,6 @@ public:
         for (ListNode *p = head; p; p = p->next){
             n++;
         }
-        if (n == 0) return NULL;
-        int k = 1;
-        while ((1<<k) < n+1){
-            k++;
-        }
-        int m = (1<<k)-1;
-        int base = (1<<(k-1)) - (m-n) - 1;
-        return dfs(1, 0, k, base, head);
+        return dfs(n, head);
     }
 };
