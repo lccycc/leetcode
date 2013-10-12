@@ -1,40 +1,24 @@
-#include <tr1/unordered_map>
-
 class Solution {
 public:
-    vector<int> l,r;
-    vector<int> fa;
-    int findfa(int a){
-        return fa[a] == a?a:(fa[a] = findfa(fa[a]));
-    }
-    void connect(int i, int j){
-        i = findfa(i);
-        j = findfa(j);
-        fa[i] = j;
-        l[j] = min(l[j], l[i]);
-        r[j] = max(r[j], r[i]);
-    }
     int longestConsecutive(vector<int> &num) {
-        unordered_map<int, int> mp;
-        l.clear();
-        r.clear();
-        fa.clear();
-        int n = num.size();
-        for (int i = 0; i<n; i++){
-            l.push_back(num[i]);
-            r.push_back(num[i]);
-            fa.push_back(i);
-            mp[num[i]] = i;
-        }
-        for (int i = 0; i<n; i++){
-            if (mp.find(num[i]-1) != mp.end()){
-                connect(i, mp[num[i]-1]);
+        unordered_map<int, pair<int, int> > h;
+        int maxres = 0;
+        for (int i = 0; i<num.size(); i++){
+            int x = num[i];
+            if (h.find(x) != h.end()) continue;
+            h[x] = make_pair(x, x);
+            if (h.find(x-1) != h.end()){
+                h[h[x-1].first].second = x;
+                h[x].first = h[x-1].first;
             }
+            if (h.find(x+1) != h.end()){
+                h[x].second = h[x+1].second;
+                h[h[x+1].second].first = h[x].first;
+                h[h[x].first].second = h[x+1].second;
+            }
+            int len = h[x].second - h[x].first+1;
+            maxres = max(maxres, len);
         }
-        int res = 1;
-        for (int i = 0; i<n; i++){
-            res = max(res, r[i] - l[i] + 1);
-        }
-        return res;
+        return maxres;
     }
 };
