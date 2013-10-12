@@ -1,20 +1,19 @@
 class Solution {
 public:
-
-    int id(int ori, int base){
-        if (!(ori&1)){
-            if (ori > base) return -1;
-            return ori;
-        }
-        if (ori<base) return ori;
-        return (ori+base+1)>>1;
-    }
+    TreeNode *dfs(int lev, int kth, int maxlev, int base, ListNode *&pt){
+        if (lev > maxlev) return NULL;
+        if (lev == maxlev && kth > base) return NULL; 
+        TreeNode *l = dfs(lev+1, kth<<1, maxlev, base, pt);
+        TreeNode *node = new TreeNode(pt->val);
+        pt = pt->next;
+        node->left = l;
+        node->right = dfs(lev+1, (kth<<1)+1, maxlev, base, pt);
+        return node;
+    }   
     TreeNode *sortedListToBST(ListNode *head) {
-        vector<TreeNode *> res;
         int n = 0;
         for (ListNode *p = head; p; p = p->next){
             n++;
-            res.push_back(new TreeNode(p->val));
         }
         if (n == 0) return NULL;
         int k = 1;
@@ -22,20 +21,7 @@ public:
             k++;
         }
         int m = (1<<k)-1;
-        int base = (1<<k) - (m-n)*2 - 2;
-        for (int i = 0; i<m; i++) if (i&1){
-            if (id(i, base) == -1) continue;
-            int root = (i^(i+1)) >>1;
-            int top = (i ^ root);
-            int l = (top | (root>>1));
-            int r = l + root + 1;
-            if (id(l, base) != -1){
-                res[id(i, base)]->left = res[id(l, base)];
-            }
-            if (id(r, base) != -1){
-                res[id(i, base)]->right = res[id(r, base)];
-            }
-        }
-        return res[id((1<<(k-1)) -1, base)];
+        int base = (1<<(k-1)) - (m-n) - 1;
+        return dfs(1, 0, k, base, head);
     }
 };
