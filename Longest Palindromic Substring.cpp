@@ -19,10 +19,9 @@ public:
 		        xlen = min(para[mid-(i-mid)], rmost-i);
 		    }
 		    if (rmost <= i + xlen){
-    		    while (i+xlen < n*2+1 && i-xlen>=0 && p[i+xlen] == p[i-xlen]){
+    		    while (i+xlen+1 < n*2+1 && i-xlen-1>=0 && p[i+xlen+1] == p[i-xlen-1]){
     		        xlen++;
     		    }
-		        xlen--;
 		        mid = i;
 		        rmost = i + xlen;
 		    }
