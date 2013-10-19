@@ -7,15 +7,15 @@
  * };
  */
  ListNode *reverse(ListNode *phead, ListNode *t){
-	ListNode *tail = t->next, *ptail = phead->next;
-	while (tail != t){
-		ListNode *tmp = phead->next->next;
-		phead->next->next = tail;
-		tail = phead->next;
-		phead->next = tmp;
-	}
-	phead->next = tail;
-	return ptail;
+    ListNode *tail = t->next, *ptail = phead->next;
+    while (tail != t){
+        ListNode *tmp = phead->next->next;
+        phead->next->next = tail;
+        tail = phead->next;
+        phead->next = tmp;
+    }
+    phead->next = tail;
+    return ptail;
 }
 class Solution {
 public:

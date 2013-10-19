@@ -9,11 +9,11 @@
  */
 class Solution {
 public:
-	int maxPathSum(TreeNode *root) {
-		int res = INT_MIN;
-		dfs(root, res);
-		return res;
-	}
+    int maxPathSum(TreeNode *root) {
+        int res = INT_MIN;
+        dfs(root, res);
+        return res;
+    }
     int dfs(TreeNode* root, int &res){
         if (root == NULL){
             return 0;

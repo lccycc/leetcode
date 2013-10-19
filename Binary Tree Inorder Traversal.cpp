@@ -26,12 +26,12 @@ public:
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode *root) {
-		vector<int> res;
-	    Inorder o(root);
-	    TreeNode *p;
-	    while ((p = o.next()) != NULL){
-	        res.push_back(p->val);
-	    }
-		return res;
+        vector<int> res;
+        Inorder o(root);
+        TreeNode *p;
+        while ((p = o.next()) != NULL){
+            res.push_back(p->val);
+        }
+        return res;
     }
 };

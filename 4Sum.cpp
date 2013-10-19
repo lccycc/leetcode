@@ -13,8 +13,8 @@ public:
         vector<vector<int> > res;
         for (int i = 0, j = tp.size()-1; i<j; i++){
             if (tp[i].second.first &&
-					num[tp[i].second.first] == num[tp[i].second.first - 1])
-				continue;
+                    num[tp[i].second.first] == num[tp[i].second.first - 1])
+                continue;
             while (j > i && tp[j].first + tp[i].first > target){
                 j--;
             }
