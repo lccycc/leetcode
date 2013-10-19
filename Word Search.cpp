@@ -1,11 +1,8 @@
 class Solution {
 public:
 	int n, m;
-	bool dfs(int x, int y, int k, string &word,
- vector<vector<char> > &board){
-
+	bool dfs(int x, int y, int k, string &word, vector<vector<char> > &board){
 		if (k>=word.size()) return true;
-
 		const int f[4] = {-1, 0, 1, 0}, g[4] = {0, 1, 0, -1};
 		for (int i = 0; i<4; i++){
 			int u = x+f[i], v = y+g[i];
