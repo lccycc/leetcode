@@ -1,57 +1,57 @@
+
+
 class Solution {
 public:
-    bool isdigit(char c){
+    bool ischar(char c){
         return c>='0' && c<='9';
     }
-    bool isInteger(const char *s, int n, bool csig, bool cemp){
-        if (n<=0) return cemp;
-        if (s[0] == '-' || s[0] == '+'){
-            if (!csig) return false;
-            s++, n--;
-        }
-        if (n<=0) return cemp;
-        for (int i = 0; i<n; i++){
-            if (!isdigit(s[i])){
-                return false;
-            }
-        }
+    bool isInt(const char *s, int l){
+        if (l <= 0) return false;
+        for (int i = 0; i<l; i++) if (!ischar(s[i])) return false;
         return true;
     }
-    bool isFloat(const char *s, int n){
-        if (n<=0) return false;
+    bool isdouble(const char *s, int l){
         int dot = -1;
-        bool has = false;
-        for (int i = 0; i<n; i++){
-            has += isdigit(s[i]);
-        }
-        if (!has) return false;
-        for (int i = 0; i<n; i++) if (s[i] == '.'){
+        for (int i = 0; i<l; i++) if (s[i]=='.'){
             dot = i;
             break;
         }
-        if (dot>=0){
-            return isInteger(s, dot, true, true) &&
-                    isInteger(s+dot+1, n-dot-1, false, true);
-        }else{
-            return isInteger(s, n, true, false);
+        if (dot != -1 && l == 1) return false;
+        if (dot == -1){
+            return isInt(s, l);
         }
+        if (dot == 0){
+            return isInt(s+1, l-1);
+        }
+        if (dot == l-1){
+            return isInt(s, dot);
+        }
+        return isInt(s, dot) && isInt(s+dot+1, l-dot-1);
     }
     bool isNumber(const char *s) {
-        
-        while (*s==' ') s++;
         int e = -1;
+        while (*s == ' ') s++;
+        if (*s == '+' || *s == '-'){
+            s++;
+        }
         int n = strlen(s);
-        while (n>0 && s[n-1] == ' '){
-            n--;
-        } 
+        while (n>0 && s[n-1] == ' ') n--;
+        
         for (int i = 0; i<n; i++) if (s[i] == 'e'){
             e = i;
-            break;
+        break;
         }
-        if (e>=0){
-            return isFloat(s, e) && isInteger(s+e+1, n-e-1, true, false);
-        }else{
-            return isFloat(s, n);
+        if (e == -1){
+            return isdouble(s, n);
         }
+        if (!isdouble(s, e)) return false;
+        s += e+1;
+        n-=e+1;
+        if (*s == '+' || *s == '-'){
+            s++;
+            n--;
+        } 
+        return isInt(s, n);
     }
 };
+
