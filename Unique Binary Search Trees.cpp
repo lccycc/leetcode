@@ -13,5 +13,3 @@ public:
         return a[n];
     }
 };
-
-
