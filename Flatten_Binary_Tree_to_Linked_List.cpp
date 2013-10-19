@@ -1,42 +1,26 @@
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
+	TreeNode *dfs(TreeNode *root){
+		if (root == NULL) return NULL;
+		if (root->left == NULL && root->right == NULL){
+			return root;
+		}
+		if (root->left == NULL){
+			return dfs(root->right);
+		}
+		TreeNode *llast = dfs(root->left);
+		if (root->right == NULL){
+			root->right = root->left;
+			root->left = NULL;
+			return llast;
+		}
+		TreeNode *rlast = dfs(root->right);
+		llast->right = root->right;
+		root->right = root->left;
+		root->left = NULL;
+		return rlast;
+	}	
     void flatten(TreeNode *root) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
-        dfs(root);
-        
-    }
-    TreeNode *dfs(TreeNode *root){
-        if (root == NULL){
-            return NULL;
-        }
-        TreeNode *l, *r;
-        l = dfs(root->left);
-        r = dfs(root->right);
-        if (l == NULL && r == NULL){
-            return root;
-        }else
-        if (r == NULL){
-            root->right = root->left;
-            root->left = NULL;
-            return l;
-        }else
-        if (l == NULL){
-            return r;
-        }else{
-            l->right = root->right;
-            root->right = root->left;
-            root->left = NULL;
-            return r;
-        }
+    	dfs(root);     
     }
 };
