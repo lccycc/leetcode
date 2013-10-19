@@ -1,71 +1,50 @@
 class Solution {
 public:
-    bool ys(string a, string b){
-        int s = 0;
-        for (unsigned i = 0; i<a.size(); i++) s += (a[i] != b[i]);
-        return s == 1;
-    }
-    map<string, int> d;
-       
-    void dfs(string s, int k, vector<string> &sta, vector<vector<string>> &res, unordered_set<string> &dict){
-        if (k == -1){
-            res.push_back(sta);
-            return ;
-        }
-        for (int i = 0; i<s.length(); i++){
-            char o = s[i];
-            for (char c = 'a'; c<='z'; c++){
-                s[i] = c;
-                if (dict.find(s) == dict.end()){
-                    continue;
-                }
-                if (d[s] == k+1){
-                    sta[k] = s;
-                    dfs(s, k-1, sta, res, dict);
-                }
-            }
-            s[i] = o;
-        }
-    } 
     vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
-
-    
-        dict.insert(start);
-        dict.insert(end);
-        d.clear();
-        queue<string> q;
-        q.push(start);
-        d[start] = 1;
-        while (!q.empty()){
-            string s = q.front();
-            q.pop();
-            int step = d[s];
-            for (unsigned i = 0; i<s.size(); i++){
-                char o = s[i];
-                for (char c = 'a'; c<='z'; c++){
-                    s[i] = c;
-                    if (dict.find(s) != dict.end()){
-                        if (d.find(s)==d.end()){
-                            d[s] = step + 1;
-                            q.push(s);
-                        }
-                    }
-                }
-                s[i] = o;
-            }
-        }
-        
-        vector<vector<string>> res;
-        if (d[end] == 0){
-            return res;
-        }
-        vector<string> sta;
-        for (int i = 0; i<d[end]; i++){
-            sta.push_back("");
-        }
-        sta[d[end]-1] = end;
-        dfs(end, d[end]-2, sta, res, dict);
-        return res;
-        
-    }
+        unordered_map<string, int> d;
+		vector<vector<string> > res;  
+		if (dict.find(start) == dict.end()) return res;
+		if (dict.find(end) == dict.end()) return res;
+		d[end] = 0;
+		vector<string> que;
+		que.push_back(end);
+		for (int qq = 0; qq < que.size(); qq++){
+			string h = que[qq];
+			int dh = d[h];
+			for (int i = 0; i<h.size(); i++){
+				for (int j = 0; j<26; j++){
+					string x = h;
+					x[i] = j + 'a';
+					if (dict.find(x) == dict.end()) continue;
+					if (d.find(x) != d.end()) continue;
+					d[x] = dh +1;
+					que.push_back(x);
+				}
+			}
+		}
+		if (d.find(start) == d.end()) return res;
+		vector<vector<string> > p[2];
+		int pnt = 0;
+		p[0].push_back(vector<string>());
+		p[0].back().push_back(start);
+		for (int xd = d[start]; xd>0; xd--){
+			p[pnt^1].clear();
+			for (int qq = 0; qq<p[pnt].size(); qq++){
+				string h = p[pnt][qq].back();
+				int dh = d[h];
+				for (int i = 0; i<h.size(); i++){
+					for (int j = 0; j<26; j++){
+						string x = h;
+						x[i] = 'a'+j;
+						if (d.find(x) == d.end()) continue;
+						if (d[x] != dh -1) continue;
+						p[pnt^1].push_back(p[pnt][qq]);
+						p[pnt^1].back().push_back(x);
+					}
+				}
+			}
+			pnt ^= 1;
+		}
+		return p[pnt];
+	}			
 };
