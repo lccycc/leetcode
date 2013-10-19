@@ -9,13 +9,13 @@ public:
                 while (k>j && num[i]+num[j]+num[k] > target){
                     k--;
                 }
-                if (k>j && (!find || 
-abs(num[i]+num[j]+num[k]-target)<abs(res-target))){
+                if (k>j && (!find ||
+						abs(num[i]+num[j]+num[k]-target)<abs(res-target))){
                     find = true;
                     res = num[i]+num[j]+num[k];
                 }
-                if (k+1<num.size() && (!find || 
-abs(num[i]+num[j]+num[k+1]-target)<abs(res-target))){
+                if (k+1<num.size() && (!find ||
+						abs(num[i]+num[j]+num[k+1]-target)<abs(res-target))){
                     find = true;
                     res = num[i]+num[j]+num[k+1];
                 }

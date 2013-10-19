@@ -4,7 +4,7 @@ public:
         if (root == NULL){
             return 0;
         }
-        int res = 999999999;
+        int res = INT_MAX;
         dfs(root, 1, res);
         return res;
     }

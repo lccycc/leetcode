@@ -40,7 +40,6 @@ public:
 			}
 		}
 		return res;
-        
     }
 };
 

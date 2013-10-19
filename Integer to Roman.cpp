@@ -9,7 +9,7 @@ public:
             int c = num/deta;
             if (c <= 3){
                 while (c--){
-                    s += dict[ptr];   
+                    s += dict[ptr];
                 }
             }else if (c<=8){
                 if (c == 4) s += dict[ptr];

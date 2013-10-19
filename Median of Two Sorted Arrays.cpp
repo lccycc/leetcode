@@ -23,7 +23,7 @@ public:
                 }
             }
         }
-        
+
         int xa = 0, ya = 0, xb = 0, yb = 0;
         if(A[(m-1)/2] < B[(n-1)/2]){
             xa = m/2;
@@ -41,6 +41,6 @@ public:
             ya = min(ya, xb);
             yb = min(yb, xa);
         }
-        return findMedianSortedArrays(A+xa,m-xa-ya, B+xb, n-xb-yb); 
+        return findMedianSortedArrays(A+xa,m-xa-ya, B+xb, n-xb-yb);
     }
 };

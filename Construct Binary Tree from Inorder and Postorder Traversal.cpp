@@ -1,7 +1,6 @@
 class Solution {
 public:
-	TreeNode *dfs(vector<int> &pos, int x, vector<int> &ino, int y,
-					int len){
+	TreeNode *dfs(vector<int> &pos, int x, vector<int> &ino, int y, int len){
 		if (len<=0) return NULL;
 		int i = y;
 		while (i<y+len && ino[i] != pos[x+len-1]){

@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
         unordered_map<string, int> d;
-		vector<vector<string> > res;  
+		vector<vector<string> > res;
 		if (dict.find(start) == dict.end()) return res;
 		if (dict.find(end) == dict.end()) return res;
 		d[end] = 0;
@@ -46,5 +46,5 @@ public:
 			pnt ^= 1;
 		}
 		return p[pnt];
-	}			
+	}
 };

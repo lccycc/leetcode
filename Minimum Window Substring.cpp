@@ -29,7 +29,6 @@ public:
 		res = S.substr(fpos, flen);
 		return res;
     }
-	
 };
 
 

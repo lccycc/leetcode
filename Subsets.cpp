@@ -11,6 +11,6 @@ public:
 				p.back().push_back(S[i]);
 			}
 		}
-		return p;   
+		return p;
     }
 };

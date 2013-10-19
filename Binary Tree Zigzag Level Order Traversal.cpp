@@ -16,17 +16,16 @@ public:
         p[0].push_back(root);
         int pnt = 0;
         while (p[pnt].size()){
-            vector<int> tmp;
+			res.push_back(vector<int>());
             if (pnt == 0){
-            for (int i = 0; i<p[pnt].size(); i++){
-              tmp.push_back(p[pnt][i]->val);
-            }
+				for (int i = 0; i<p[pnt].size(); i++){
+					res.back().push_back(p[pnt][i]->val);
+				}
             }else{
                 for (int i = p[pnt].size()-1; i>=0; i--){
-                    tmp.push_back(p[pnt][i]->val);
+                    res.back().push_back(p[pnt][i]->val);
                 }
             }
-            res.push_back(tmp);
             p[pnt^1].clear();
             for (int i = 0; i<p[pnt].size(); i++){
                 if (p[pnt][i]->left){

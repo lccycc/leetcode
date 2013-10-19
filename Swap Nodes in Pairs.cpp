@@ -5,7 +5,7 @@ public:
 		newhead.next = head;
 		while (p->next && p->next->next){
 			ListNode *p1 = p->next, *p2 = p1->next, *p3 = p2->next;
-        	p1->next = p3;
+            p1->next = p3;
 			p2->next = p1;
 			p->next = p2;
 			p = p1;

@@ -11,7 +11,7 @@ public:
 		d['M'] = 1000;
 		int res = 0;
 		for (int i = 0; i<s.size(); i++){
-        	if (i+1<s.size() && d[s[i]] < d[s[i+1]]){
+            if (i+1<s.size() && d[s[i]] < d[s[i+1]]){
 				res -= d[s[i]];
 			}else{
 				res += d[s[i]];

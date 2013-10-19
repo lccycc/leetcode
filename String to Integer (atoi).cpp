@@ -19,9 +19,8 @@ public:
             base *= 10;
             if (base < MIN_INT + (str[i]-'0')) return over;
             base -= str[i]-'0';
-            if (sgn < 0 && base == MIN_INT) return over;
         }
-
+        if (sgn < 0 && base == MIN_INT) return over;
         return base * sgn;
     }
 };

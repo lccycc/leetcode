@@ -19,7 +19,7 @@ public:
 			}
 		}
 		return a;
-	}				
+	}
     vector<TreeNode *> generateTrees(int n) {
         return dfs(1, n);
     }

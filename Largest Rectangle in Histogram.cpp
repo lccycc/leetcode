@@ -11,9 +11,7 @@ public:
 			while (s.size() && height[s.top()]>= height[i]){
 				s.pop();
 			}
-			int k = 0;
-			if (s.size()) k = s.top()+1;
-			l[i] = k;
+			l[i] = (s.size() ? l[i] = s.top()+1 : 0);
 			s.push(i);
 		}
 		s = stack<int>();
@@ -21,9 +19,7 @@ public:
 			while (s.size() && height[s.top()]>= height[i]){
 				s.pop();
 			}
-			int k = n-1;
-			if (s.size()) k = s.top()-1;
-			r[i] = k;
+			r[i] = (s.size() ? k = s.top()-1 : n-1);
 			s.push(i);
 		}
 		int res = 0;

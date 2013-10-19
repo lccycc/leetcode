@@ -11,8 +11,8 @@ public:
 				res.push_back(s);
 			}
 		}else{
-        	dfs(root->left, sum);
-        	dfs(root->right, sum);
+            dfs(root->left, sum);
+            dfs(root->right, sum);
         }
 	    s.resize(s.size()-1);
     }

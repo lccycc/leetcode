@@ -8,7 +8,6 @@ public:
             for (int i = 0; i<res.size();){
                 int j = i+1;
                 while (j<res.size() && res[i] == res[j]) j++;
-                
                 char tmp[50];
                 sprintf(tmp, "%d%c", j-i, res[i]);
                 tp = tp + tmp;
@@ -16,6 +15,6 @@ public:
             }
             res = tp;
         }
-            return res;
+        return res;
     }
 };

@@ -36,7 +36,7 @@ public:
         }
         int n = strlen(s);
         while (n>0 && s[n-1] == ' ') n--;
-        
+
         for (int i = 0; i<n; i++) if (s[i] == 'e'){
             e = i;
         break;
@@ -50,7 +50,7 @@ public:
         if (*s == '+' || *s == '-'){
             s++;
             n--;
-        } 
+        }
         return isInt(s, n);
     }
 };

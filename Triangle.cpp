@@ -17,7 +17,7 @@ public:
             a[t^1][i] = a[t][i-1] + triangle[i][i];
             t^=1;
         }
-        int res = 999999999;
+        int res = INT_MAX;
         for (int i = 0; i<n; i++){
             res = min(res, a[t][i]);
         }

@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     bool isValid(string s) {
         stack<char> sta;
         for (unsigned i = 0; i<s.size(); i++){
@@ -24,7 +23,7 @@ public:
                 }else{
                     return false;
                 }
-            }else            {
+            }else{
                 sta.push(s[i]);
             }
         }

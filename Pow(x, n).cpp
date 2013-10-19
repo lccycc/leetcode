@@ -16,7 +16,6 @@ public:
                 n = -n;
             }
         }
-        
         while (n){
             if (n&1) res *= x;
             if (n>>=1) x *= x;

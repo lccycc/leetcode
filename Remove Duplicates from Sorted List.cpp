@@ -7,6 +7,6 @@ public:
 				p->next = p->next->next;
 			}
 		}
-		return head;        
+		return heada;
     }
 };

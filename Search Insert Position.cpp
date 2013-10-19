@@ -11,7 +11,6 @@ public:
         }
         if (A[l] == target) return l;
         return l+1;
-        
     }
 };
 

@@ -1,8 +1,5 @@
 class Solution {
 public:
-    bool tryadd(int a, int b, int c){
-        return a-b<=c;
-    }
     int divide(int dividend, int divisor) {
         int sgn = -1;
         if (dividend>0){
@@ -16,7 +13,7 @@ public:
         int res = 0;
         while (dividend <= divisor){
             int deta = -1, cmu = divisor;
-            while (tryadd(dividend, cmu, cmu)){
+            while (dividend - cmu < cmu){
                 cmu = cmu + cmu;
                 deta = deta + deta;
             }

@@ -17,7 +17,8 @@ public:
 					string t = x;
 					t[j] = 'a'+k;
 					if (t.compare(end) == 0) return dx+1;
-					if (dict.find(t) == dict.end()) continue;						if (d.find(t) != d.end()) continue;
+					if (dict.find(t) == dict.end()) continue;
+                    if (d.find(t) != d.end()) continue;
 					d[t] = dx+1;
 					h.push_back(t);
 				}

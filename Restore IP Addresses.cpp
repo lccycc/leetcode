@@ -14,10 +14,10 @@ public:
 
         deta = deta * 10 + s[k]-'0';
         if (deta >= 256) return ;
-        
+
         c[cp] = deta;
         dfs(s, k+1, 0, 0, cp+1);
-        
+
         if (len == 0 && s[k] == '0') return ;
         dfs(s, k+1, len+1, deta, cp);
 

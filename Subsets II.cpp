@@ -8,7 +8,7 @@ public:
 		for (int i = 0; i<S.size();){
 			int j = i;
 			while (j<S.size() && S[j] == S[i]) j++;
-			
+
 			int psize = p.size();
 			for (int k = 0; k<psize; k++){
 				for (int t = 1; t<=j-i; t++){

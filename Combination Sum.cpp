@@ -33,6 +33,6 @@ public:
         }
         res.clear();
         dfs(0, target);
-        return res;            
+        return res;
     }
 };

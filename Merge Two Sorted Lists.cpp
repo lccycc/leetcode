@@ -21,6 +21,5 @@ public:
         }
         tail->next = NULL;
         return newhead.next;
-        
     }
 };

@@ -22,7 +22,7 @@ public:
         p->next = head;
         head = q->next;
         q->next = NULL;
-        return head;        
+        return head;
     }
 };
 

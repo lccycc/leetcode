@@ -14,7 +14,6 @@ public:
 	}
 
     TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-     return dfs(preorder, 0, inorder, 0, preorder.size());   
-        
+        return dfs(preorder, 0, inorder, 0, preorder.size());
     }
 };

@@ -15,7 +15,6 @@ public:
 		}
 		if (tot < 0) return -1;
 		return (mxid+1)%n;
-        
     }
 };
 

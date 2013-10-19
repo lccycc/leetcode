@@ -18,7 +18,6 @@ public:
             swap(per[i], per[k]);
         }
     }
-            
     int totalNQueens(int n) {
         tot = 0;
         if (n == 0) return tot;

@@ -8,7 +8,6 @@ public:
             if (r>=n-1) return true;
         }
         return false;
-        
     }
 };
 

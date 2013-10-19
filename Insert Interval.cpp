@@ -24,7 +24,7 @@ public:
         for (; i<n; i++){
             res.push_back(intervals[i]);
         }
-        return res;        
+        return res;
     }
 };
 

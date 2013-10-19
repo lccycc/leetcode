@@ -19,8 +19,8 @@ public:
 		root->right = root->left;
 		root->left = NULL;
 		return rlast;
-	}	
+	}
     void flatten(TreeNode *root) {
-    	dfs(root);     
+        dfs(root);
     }
 };

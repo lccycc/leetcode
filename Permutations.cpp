@@ -9,7 +9,7 @@ public:
         while (true){
             int i = n-2;
             while (i>=0 && num[i] >= num[i+1]) i--;
-            
+
             if (i>=0){
                 int j= n-1;
                 while (num[j]<=num[i]){

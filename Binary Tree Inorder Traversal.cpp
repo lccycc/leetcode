@@ -1,6 +1,6 @@
 class Inorder{
     stack<TreeNode *> s;
-    TreeNode *p;   
+    TreeNode *p;
 public:
     Inorder(TreeNode* root){
         p = root;
@@ -22,7 +22,6 @@ public:
         return res;
     }
 };
-
 
 class Solution {
 public:

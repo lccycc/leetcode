@@ -13,7 +13,7 @@ public:
 			}
 
 			p[pnt^1].clear();
-        	for (int i = 0; i<p[pnt].size(); i++){
+			for (int i = 0; i<p[pnt].size(); i++){
 				if (p[pnt][i]->left){
 					p[pnt^1].push_back(p[pnt][i]->left);
 				}

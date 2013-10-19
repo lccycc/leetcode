@@ -25,7 +25,7 @@ public:
 				if (p[pnt][i]->left){
 					p[pnt^1].push_back(p[pnt][i]->left);
 				}
-        		if (p[pnt][i]->right){
+				if (p[pnt][i]->right){
 					p[pnt^1].push_back(p[pnt][i]->right);
 				}
 			}
@@ -34,5 +34,3 @@ public:
 		return res;
     }
 };
-
-
