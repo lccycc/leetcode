@@ -10,15 +10,7 @@ class Solution {
 public:
     ListNode *sortList(ListNode *head) {
         if (head == NULL) return NULL;
-        int n = 0;
-        for (auto p = head; p; p = p->next){
-            n++;
-        }
         int val = head->val;
-        n/=2;
-        for (auto p = head; n--; p = p->next){
-            val = p->val;
-        }
         ListNode h1(0), h2(0), h3(0), *t1 = &h1, *t2 = &h2, *t3 = &h3;
         for (auto p = head; p; p = p->next){
             if (p->val == val){
