@@ -4,10 +4,6 @@ public:
         vector<int> res;
         if (L.size() == 0) return res;
         int len = L[0].size();
-        if (len == 0){
-            for (int i = 0; i<S.size(); i++) res.push_back(i);
-            return res;
-        }
         map<string, int> num;
         for (string s:L){
             num[s]++;
