@@ -1,45 +1,52 @@
 class Solution {
 public:
+/* save match[i][j]: s[i->j] is one of the dictionary */
+    vector<set<int> > match;
     vector<string> res;
-    vector<int> p;
-    vector<vector<int> > goes;
-    vector<bool> visit;
-    void search(string &s, int k, int cut, unordered_set<string> &dict){
-        if (k>=s.size()){
-            string tmp = s.substr(0, p[0]);
-            for (int i = 1; i<cut; i++){
-                tmp = tmp + " " + s.substr(p[i-1], p[i]-p[i-1]);
+    vector<int> cutpoint;
+    vector<bool> f;
+    void dfs(int ncut, string &s){
+        int cpnt = cutpoint[ncut-1];
+        if (cpnt == s.size()){
+            string tmp = s.substr(0, cutpoint[1]);
+            for (int i = 1; i<ncut-1; i++){
+                tmp = tmp + " " + s.substr(cutpoint[i], cutpoint[i+1]-cutpoint[i]);
             }
             res.push_back(tmp);
-            return ;
+            return;
         }
-        for (int i = 0; i<goes[k].size(); i++){
-            p[cut] = goes[k][i];
-            search(s, goes[k][i], cut+1, dict);
+        for (int nxt : match[cpnt]){
+            cutpoint[ncut] = nxt;
+            dfs(ncut+1, s);
         }
     }
     vector<string> wordBreak(string s, unordered_set<string> &dict) {
-        p.resize(s.size());
-        res.clear();
-        goes.clear();
-        goes.resize(s.size());
-        visit.clear();
-        for (int i = 0; i<=s.size(); i++){
-            visit.push_back(false);
-        }
-        visit[s.size()] = true;
-        for (int k = s.size(); k>=0; k--) if (visit[k]){
-            for (unordered_set<string>::iterator it = dict.begin(); it!=dict.end(); it++){
-                int len = (*it).size();
-                if (k - len < 0) continue;
-                if (s.substr(k-len, len).compare(*it) == 0){
-                    goes[k-len].push_back(k);
-                    visit[k-len] = true;
+        int n = s.size();
+        match.clear();
+        for (int i = 0; i<n; i++){
+            match.push_back(set<int>());
+            for (int j = i+1; j<=n; j++){
+                if (dict.find(s.substr(i, j-i))!=dict.end()){
+                    match.back().insert(j);
                 }
             }
         }
-        if (visit[0] == false) return res;
-        search(s, 0, 0, dict);
+        res.clear();
+        cutpoint.resize(n+1);
+        cutpoint[0] = 0;
+        f.resize(n+1);
+        f[n] = 1;
+        for (int i = n-1; i>=0; i--){
+            f[i] = 0;
+            auto tmp = match[i];
+            for (int nxt : tmp) {
+                f[i] = f[i] || f[nxt];
+                if (!f[nxt]){
+                    match[i].erase(nxt);
+                }
+            }
+        }
+        dfs(1, s);
         return res;
     }
 };
