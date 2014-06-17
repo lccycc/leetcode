@@ -1,3 +1,7 @@
+/*
+    1 sort
+    2 k>j, k+1<num.size()
+*/
 class Solution {
 public:
     int threeSumClosest(vector<int> &num, int target) {
