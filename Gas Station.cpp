@@ -1,3 +1,12 @@
+/*
+    S[i] = Sum{ gas[i] - cost[i], for 0..i }
+    S[n-1] should >=0
+    for a new start point of t, say G[i] = SUM{ gas[i] - cost[i] for t..i }
+    G[i] = S[i] - S[t-1] for i>=t
+         = S[n-1] - S[t-1] + S[i] for i<t which >= S[i] - S[t-1]
+    so find the t such that S[t-1] is minimal, so all S[i] - S[t-1] >=0
+*/
+
 class Solution {
 public:
     int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
