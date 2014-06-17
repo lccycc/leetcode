@@ -1,3 +1,16 @@
+/* 
+    O(n^2logn)
+    for each point o,
+        decrease all points by o
+        set zero = number of (0, 0)
+        for those points that are not (0, 0), mirror it to the y>0 plane and sort them by cross-muti
+        update answer by zero !
+        groups the points by cross-muti, update zero+sizeof(each group)
+*/
+
+
+
+
 /**
  * Definition for a point.
  * struct Point {
