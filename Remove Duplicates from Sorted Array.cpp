@@ -1,3 +1,4 @@
+/* boundary cases: n = 0 or n = 1 */
 class Solution {
 public:
     int removeDuplicates(int A[], int n) {
