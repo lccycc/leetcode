@@ -1,44 +1,32 @@
 class Solution {
 public:
+/*
+    f[i][j]: p[0..i-1] match s[0..j-1]
+    if not has star
+        f[i][j] = (f[i-1][j-1] && p[i-1] match s[j-1])
+    else
+        f[i][j] = f[i-1][j] || (f[i][j-1] && p[i-1] match s[j-1])
+*/
+    bool match(char a, char b){
+        return a == '.' || a == b;
+    }
     bool isMatch(const char *s, const char *p) {
-        int n = strlen(s), m = strlen(p);
-        vector<bool> a[2];
-        for (int i = 0; i<=n; i++){
-            a[0].push_back(false);
-        }
-        a[1] = a[0];
-        a[0][0] = true;
-        int pnt = 0;
-        for (int i = 0; i<m; i++){
-            char c = p[i];
-            bool star = false;
-            if (p[i+1] == '*'){
-                i++;
-                star = true;
-            }
-            if (star){
-                a[pnt^1] = a[pnt];
+        vector<bool> f;
+        int n = strlen(s);
+        f.resize(n+1);
+        f[0] = true;
+        while (*p){
+            char ch = *p++;
+            bool hasstar = (*p == '*');
+            if (hasstar) p++;
+            
+            if (!hasstar){
+                for (int j = n; j>0; j--)  f[j] = f[j-1] && match(ch, s[j-1]);
+                f[0] = false;
             }else{
-                for (int j = 0; j<=n; j++){
-                    a[pnt^1][j] = 0;
-                }
+                for (int j = 1; j<=n; j++) f[j] = f[j] || (f[j-1] && match(ch, s[j-1]));
             }
-            for (int j = 0; j<n; j++){
-                if (a[pnt][j]){
-                    for (int k = j; k<n; k++){
-                        if (c == '.' || c == s[k]){
-                            a[pnt^1][k+1] = true;
-                        }else{
-                            break;
-                        }
-                        if (!star){
-                            break;
-                        }
-                    }
-                }
-            }
-            pnt ^= 1;
         }
-        return a[pnt][n];
+        return f[n];
     }
 };
