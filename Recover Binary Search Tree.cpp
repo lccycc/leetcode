@@ -1,3 +1,9 @@
+/*
+    in the Inorder traversal, it's an increasing sequence A by swap two element
+    find i that A[i] > A[i+1]. if only one i exists, then swap A[i], A[i+1]
+    otherwise A[i1] > A[i1+1], A[i2] > A[i2+1]. swap A[i1] and A[i2].
+*/
+
 class Solution {
 public:
     TreeNode *last, *n1, *n2;
