@@ -3,7 +3,7 @@ public:
     int upbound(int A[], int n, int target){
         /* minimal i that A[i] > target */
         int l = 0, r = n;
-        if (target < A[0]) return 0;
+        if (!n || target < A[0]) return 0;
         while (l+1<r){
             int mid = (l+r)/2;
             if (A[mid] <= target) l = mid;
@@ -13,7 +13,7 @@ public:
     }
     int lowbound(int A[], int n, int target){
         /* minimal i that A[i] >= target */
-        if (A[0] >= target) return 0;
+        if (!n || A[0] >= target) return 0;
         int l = 0, r = n;
         while (l+1<r){
             int mid = (l+r)/2;
