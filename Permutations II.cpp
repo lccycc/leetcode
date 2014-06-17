@@ -1,3 +1,6 @@
+/*
+    while num[i] >= num[i+1]  !!!
+*/
 class Solution {
 public:
     void next_pemu(vector<int> &num){
