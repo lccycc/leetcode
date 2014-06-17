@@ -1,3 +1,8 @@
+/*
+    1 sort
+    2 not duplicate
+    3 k-- not k++
+*/
 class Solution {
 public:
     vector<vector<int> > threeSum(vector<int> &num) {
