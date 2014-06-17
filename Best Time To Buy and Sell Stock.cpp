@@ -1,3 +1,8 @@
+/*
+    ask whether should by at least one stock or not
+    for each prices[i], update answer by prices[i] - MIN{prices[0..i-1]}
+*/
+
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
