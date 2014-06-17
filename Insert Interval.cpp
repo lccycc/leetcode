@@ -1,3 +1,10 @@
+/*
+    1 pass the intervals of end < newInterval.start
+    2 merge newInterval with those of start <= newInterval.end
+    3 push newInterval
+    4 pass the rest intervals
+*/
+
 /**
  * Definition for an interval.
  * struct Interval {
