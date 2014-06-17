@@ -2,23 +2,19 @@ class Solution {
 public:
     int minDistance(string word1, string word2) {
         int n = word1.size(), m = word2.size();
-        vector<int> p[2];
-        for (int i = 0; i<=m; i++){
-            p[0].push_back(i);
-            p[1].push_back(0);
-        }
-        int pnt = 0;
+        vector<int> f, g;
+        f.resize(m+1);
+        g.resize(m+1);
+        for (int i = 0; i<=m; i++) f[i] = i;
+        /* f[i][j] = f[i-1][j]+1, f[i][j-1]+1, f[i-1][j-1] if match */
         for (int i = 1; i<=n; i++){
-            p[pnt^1][0] = i;
+            g[0] = f[0]+1;
             for (int j = 1; j<=m; j++){
-                p[pnt^1][j] = min(p[pnt][j], p[pnt^1][j-1])+1;
-                p[pnt^1][j] = min(p[pnt^1][j],
-                            p[pnt][j-1] + (word1[i-1]!=word2[j-1]));
+                g[j] = min(f[j], g[j-1])+1;
+                g[j] = min(g[j], f[j-1]+(word1[i-1] != word2[j-1]));
             }
-            pnt^=1;
+            f.swap(g);
         }
-        return p[pnt][m];
+        return f[m];
     }
 };
-
-
