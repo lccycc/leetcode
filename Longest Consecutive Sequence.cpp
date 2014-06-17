@@ -1,24 +1,34 @@
+/*
+    save the left bound and right bound of each interval.
+    the bound inside interval may not be update. but the bounds of both side should be update.
+    for a new integer x,
+        if x is existed, it's in some interval. ignore x.
+        otherwise, build a new interval [x, x]
+        look into x-1, if exist, must be a right boundary of some [lbound[x-1], x-1]
+            update rbound[lbound[x-1]] <- x, lbound[x] <- lbound[x-1]
+        look into x+1, if exist, must be a left boundary of some [x+1, rbound[x+1]]
+            update lbound[rbound[x+1] <- lbound[x] !!!
+               and rbound[lbound[x]] <- rbound[x+1] !!!
+*/
 class Solution {
 public:
     int longestConsecutive(vector<int> &num) {
-        unordered_map<int, pair<int, int> > h;
-        int maxres = 0;
-        for (int i = 0; i<num.size(); i++){
-            int x = num[i];
-            if (h.find(x) != h.end()) continue;
-            h[x] = make_pair(x, x);
-            if (h.find(x-1) != h.end()){
-                h[h[x-1].first].second = x;
-                h[x].first = h[x-1].first;
+        map<int, int> lbound, rbound;
+        int ans = 0;
+        for (int x : num){
+            if (lbound.find(x) != lbound.end()) continue;
+            lbound[x] = rbound[x] = x;
+            if (lbound.find(x-1) != lbound.end()){
+                lbound[x] = lbound[x-1];
+                rbound[lbound[x]] = x;
             }
-            if (h.find(x+1) != h.end()){
-                h[x].second = h[x+1].second;
-                h[h[x+1].second].first = h[x].first;
-                h[h[x].first].second = h[x+1].second;
+            if (lbound.find(x+1) != lbound.end()){
+                rbound[x] = rbound[x+1];
+                rbound[lbound[x]] = rbound[x];
+                lbound[rbound[x]] = lbound[x];
             }
-            int len = h[x].second - h[x].first+1;
-            maxres = max(maxres, len);
+            ans = max(ans, rbound[x] - lbound[x]+1);
         }
-        return maxres;
+        return ans;
     }
 };
