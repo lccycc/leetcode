@@ -1,3 +1,4 @@
+/* merge from the tail will reduce one time of scan */
 class Solution {
 public:
     void merge(int A[], int m, int B[], int n) {
