@@ -1,27 +1,24 @@
+/*
+    r[i] means the maximal profit of i..n-1
+    for each i, treate it as the sell day of the first operation
+    update answer by    prices[i] - MIN(prices[0..i-1]) + r[i+1]
+*/
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
-        int n = prices.size();
-        if (n<2) return 0;
-        vector<int> l, r;
-        l.resize(n+1);
-        r.resize(n+1);
-        int minv = prices[0];
-        l[0] = 0;
-        for (int i = 1; i<n; i++){
-            l[i] = max(prices[i] - minv, l[i-1]);
-            minv = min(minv, prices[i]);
+        if (prices.size() == 0) return 0;
+        vector<int> r;
+        r.resize(prices.size()+1);
+        int maxp = prices.back();
+        for (int i = prices.size()-2; i>=0; i--){
+            r[i] = max(r[i+1], maxp - prices[i]);
+            maxp = max(maxp, prices[i]);
         }
-        r[n] = r[n-1] = 0;
-        int maxv = prices[n-1];
-        for (int i = n-2; i>=0; i--){
-            r[i] = max(maxv - prices[i], r[i+1]);
-            maxv = max(maxv, prices[i]);
+        int ans = r[0], minp = prices[0];
+        for (int i = 1; i<prices.size(); i++){
+            ans = max(ans, prices[i] - minp + r[i+1]);
+            minp = min(minp, prices[i]);
         }
-        int res = 0;
-        for (int  i = 1; i<n; i++){
-            res = max(res, l[i]+r[i+1]);
-        }
-        return res;
+        return ans;
     }
 };
