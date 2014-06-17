@@ -1,5 +1,5 @@
 /*
-    the number yf graycdde is 2^n
+    the number of graycdde is 2^n
     take care of n=0 and n=1
 */
 class Solution {
