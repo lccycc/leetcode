@@ -1,5 +1,20 @@
 class Solution {
 public:
+    TreeNode *work(vector<int> &num, int l, int r){
+        if (l>r) return NULL;
+        int mid = (l+r)/2;
+        TreeNode *root = new TreeNode(num[mid]);
+        root->left = work(num, l, mid-1);
+        root->right = work(num, mid+1, r);
+        return root;
+    }
+    TreeNode *sortedArrayToBST(vector<int> &num) {
+        return work(num, 0, num.size()-1);
+    }
+};
+/*
+class Solution {
+public:
     int id(int ori, int base){
         if (!(ori&1)){
             if (ori > base) return -1;
@@ -37,3 +52,4 @@ public:
         return res[id((1<<(k-1)) -1, base)];
     }
 };
+*/
