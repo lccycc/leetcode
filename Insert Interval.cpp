@@ -3,6 +3,8 @@
     2 merge newInterval with those of start <= newInterval.end
     3 push newInterval
     4 pass the rest intervals
+    
+    what if the intervals are not sorted?
 */
 
 /**
