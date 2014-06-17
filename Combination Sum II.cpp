@@ -1,3 +1,8 @@
+/*
+    k>=num.size() return;
+    target < num[k] return;
+    not duplicate
+*/
 class Solution {
 public:
     vector<bool> choose;
