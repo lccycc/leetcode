@@ -1,3 +1,43 @@
+/*
+class Solution {
+public:
+    vector<string> wordBreak(string s, unordered_set<string> &dict) {
+        vector<vector<int> > f, g;
+        int n = s.size();
+        f.resize(n+1);
+        g.resize(n+1);
+        for (int i = 0; i<n; i++) for (int j = i; j<n; j++) if (dict.find(s.substr(i, j-i+1))!=dict.end()){
+            f[i].push_back(j+1);
+            g[j+1].push_back(i);
+        }
+        vector<bool> dp;
+        dp.resize(n+1);
+        dp[0] = true;
+        for (int i = 0; i<n; i++) if (dp[i]){
+            for (int x : f[i]) dp[x] = true;
+        }
+        vector<vector<string> > res;
+        res.resize(n+1);
+        if (!dp[n]) return res[0];
+        res[n].push_back(string(""));
+        for (int i = n; i>0; i--) if (dp[i] && res[i].size()>0){
+            for (int x : g[i]){
+                if (!dp[x]) continue;
+                string sub = s.substr(x, i-x);
+                for (string str : res[i]){
+                    if (str.size()) res[x].push_back(sub+" "+str);
+                    else res[x].push_back(sub);
+                }
+            }
+            res[i].clear();
+        }
+        return res[0];
+    }
+};
+*/
+
+
+
 class Solution {
 public:
 /* save match[i][j]: s[i->j] is one of the dictionary */
