@@ -1,3 +1,8 @@
+/* 
+    sort each string as its key
+    group strings by their keys
+    return the groups of size >=2
+*/
 class Solution {
 public:
     vector<string> anagrams(vector<string> &strs) {
