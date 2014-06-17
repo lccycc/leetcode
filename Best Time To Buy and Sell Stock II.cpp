@@ -1,3 +1,8 @@
+/*
+    if prices[i] > prices[i-1], add prices[i] - prices[i-1] to the answer
+*/
+    
+
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
