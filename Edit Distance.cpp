@@ -6,7 +6,7 @@ public:
         f.resize(m+1);
         g.resize(m+1);
         for (int i = 0; i<=m; i++) f[i] = i;
-        /* f[i][j] = f[i-1][j]+1, f[i][j-1]+1, f[i-1][j-1] if match */
+        /* f[i][j] = f[i-1][j]+1, f[i][j-1]+1, f[i-1][j-1]+(if not match) */
         for (int i = 1; i<=n; i++){
             g[0] = f[0]+1;
             for (int j = 1; j<=m; j++){
