@@ -1,32 +1,27 @@
 class Solution {
 public:
-    int n, m;
-    bool dfs(int x, int y, int k, string &word, vector<vector<char> > &board){
+    bool dfs(vector<vector<char> > &board, int x, int y, string &word, int k){
         if (k>=word.size()) return true;
+        char backup = board[x][y];
+        board[x][y] = 0;
         const int f[4] = {-1, 0, 1, 0}, g[4] = {0, 1, 0, -1};
+        bool findit = false;
         for (int i = 0; i<4; i++){
-            int u = x+f[i], v = y+g[i];
-            if (u<0 || u>=n || v<0 || v>=m) continue;
+            int u = x + f[i], v = y + g[i];
+            if (u<0 || v<0 || u>=board.size() || v>=board[u].size()) continue;
             if (board[u][v] != word[k]) continue;
-            board[u][v] = ' ';
-            if (dfs(u, v, k+1, word, board)) return true;
-            board[u][v] = word[k];
+            findit = dfs(board, u, v, word, k+1);
+            if (findit) break;
         }
-        return false;
+        board[x][y] = backup;
+        return findit;
     }
-            
     bool exist(vector<vector<char> > &board, string word) {
         if (word.size() == 0) return true;
-        n = board.size();
-        if (n == 0) return false;
-        m = board[0].size();
-        if (m == 0) return false;
-        for (int i = 0; i<n; i++){
-            for (int j = 0; j<m; j++){
-                if (word[0] == board[i][j]){
-                    board[i][j] = ' ';
-                    if (dfs(i, j, 1, word, board)) return true;
-                    board[i][j] = word[0];
+        for (int i = 0; i<board.size(); i++){
+            for (int j = 0; j<board[i].size(); j++){
+                if (board[i][j] == word[0]){
+                    if (dfs(board, i, j, word, 1)) return true;
                 }
             }
         }
