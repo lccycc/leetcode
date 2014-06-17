@@ -1,3 +1,8 @@
+/*
+    after each loop
+        x+=1, y+=1;
+        n -= 2 !!
+*/
 class Solution {
 public:
     vector<vector<int> > generateMatrix(int n) {
