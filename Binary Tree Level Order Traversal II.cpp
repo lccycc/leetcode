@@ -4,20 +4,23 @@
 */
 class Solution {
 public:
-    vector<vector<int> > levelOrder(TreeNode *root) {
-        vector<TreeNode *> f, g;
+    vector<vector<int> > levelOrderBottom(TreeNode *root) {
         vector<vector<int> > res;
+        vector<TreeNode*> f, g;
         if (!root) return res;
         f.push_back(root);
         while (f.size()){
-            res.push_back(vector<int>());
             g.clear();
-            for (auto x : f){
+            res.push_back(vector<int>());
+            for (TreeNode* x : f){
                 res.back().push_back(x->val);
                 if (x->left) g.push_back(x->left);
                 if (x->right) g.push_back(x->right);
             }
             f.swap(g);
+        }
+        for (int l = 0, r = res.size()-1; l<r; l++, r--){
+            res[l].swap(res[r]);
         }
         return res;
     }
