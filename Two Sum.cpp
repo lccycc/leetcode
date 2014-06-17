@@ -1,3 +1,4 @@
+/*  return index in original order */
 class Solution {
 public:
     vector<int> twoSum(vector<int> &numbers, int target) {
