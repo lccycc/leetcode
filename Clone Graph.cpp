@@ -1,3 +1,7 @@
+/*
+    when add the root node to HashMap, do remember to COPY it
+*/
+
 /**
  * Definition for undirected graph.
  * struct UndirectedGraphNode {
