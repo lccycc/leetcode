@@ -1,29 +1,35 @@
 class Solution {
 public:
     void reverseWords(string &s) {
-        int n = s.size();
-        if (n == 0) return ;
-        for (int i = 0; i+i<s.size(); i++){
-            swap(s[i], s[n-i-1]);
+       /* first, reverse s
+            second, for each word in s, reverse it again
+            third, cut useless space
+        */
+        for(int l = 0, r = s.size()-1; l<r; l++, r--){
+            swap(s[l], s[r]);
         }
-        for (int i = 0, j; i<n; i = j){
-            j = i;
-            while (j<n && s[j]==' ') j++;
-            if (j>=n) break;
+        for (int i = 0; i<s.size(); i++) {
+            if (s[i] == ' ') continue;
+            int j = i;
+            while (j < s.size() && s[j] != ' ') j++;
+            for (int l = i, r =  j-1; l<r; l++, r--){
+                swap(s[l], s[r]);
+            }
             i = j;
-            while (j<n && s[j]!=' ') j++;
-            for (int k = 0; k+k<j-i; k++){
-                swap(s[i+k], s[j-k-1]);
+        }
+        /* now, delete useless space */
+        int tail = s.size();
+        while (tail && s[tail-1]==' ') tail--;
+        if (tail ==0){
+            s = "";
+            return ;
+        }
+        int pnt = 0;
+        for (int i = 0; i<tail; i++){
+            if (s[i] != ' ' || (pnt && s[pnt-1] != ' ')){
+                s[pnt++] = s[i];
             }
         }
-        int j = 0;
-        for (int i = 0; i<n; i++){
-            if (s[i]== ' ' && (j == 0 || s[i-1] == ' ')){
-                continue;
-            }
-            s[j++] = s[i];
-        }
-        if (j>0 && s[j-1] == ' ') j--;
-        s.erase(j);
+        s = s.substr(0, pnt);
     }
 };
