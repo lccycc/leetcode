@@ -3,9 +3,9 @@ public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
         /* p point to n+1 node from the end
            if there are only n node, return head->next;
-           otherwise, q -> n+1 node from head, p -> head;
-           move p and q forward until q reach the end of the list
-           and remove the next node of p
+           otherwise, q ->head
+           move p and q forward until p reach the end of the list
+           and remove the next node of q
          */
         ListNode *p, *q;
         p = head;
