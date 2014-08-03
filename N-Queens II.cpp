@@ -34,4 +34,37 @@ public:
         return tot;
     }
 };
-
+/* no recursive
+class Solution {
+public:
+    int totalNQueens(int n) {
+        vector<bool> xmy, xpy, sp;
+        int sum = 0;
+        stack<int> pos;
+        xmy.resize(n+n+1);
+        xpy.resize(n+n+1);
+        sp.resize(n);
+        pos.push(0);
+        int x, y;
+        while (pos.size()){
+            x = pos.size()-1, y = pos.top();
+            if (y){
+                sp[y-1] = xpy[x+y-1] = xmy[n-x+y-1] = false;
+            }
+            pos.pop();
+            if (x>=n){
+                sum++;
+                continue;
+            }
+            while (y<n && (sp[y] || xpy[x+y] || xmy[n-x+y])) y++;
+            if (y>=n){
+                continue;
+            }
+            pos.push(y+1);
+            sp[y] = xpy[x+y] = xmy[n-x+y] = true;
+            pos.push(0);
+        }
+        return sum;
+    }
+};
+*/
